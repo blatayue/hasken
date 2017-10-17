@@ -4,7 +4,10 @@
   "description": "A homepage",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "webpack-dev-server --hot --history-api-fallback --open",
+    "test": "cross-env NODE_ENV=test mocha --require babel-register --require babel-polyfill --require ./src/conf test/*.js",
+    "lint": "eslint src/",
+    "build": "cross-env BUILD=true webpack -p"
   },
   "author": "Blatayue",
   "license": "ISC",
