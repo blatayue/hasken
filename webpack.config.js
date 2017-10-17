@@ -26,7 +26,7 @@ module.exports = {
     contentBase: OUT_DIR,
   },
 
-  modules: {
+  module: {
     rules: [{
         test: /\.jsx?$/, 
         exclude: /node_modules/, 
@@ -84,6 +84,6 @@ module.exports = {
   ],
 
   resolve: {
-    extemsions: ['.js', '.jsx']
+    extensions: ['.js', '.jsx']
   }
 }
