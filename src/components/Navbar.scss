@@ -1,0 +1,15 @@
+@import "../materialize/sass/materialize";
+.navWrap {
+    @extend .nav-wrapper;
+    display: flex;
+    background-color: color("blue-grey", "base");
+    a {
+        font-size: 1.25em;
+        margin-right: .75em;
+        margin-left: .75em;
+    }
+}
+nav {
+    grid-column: 1 / 13;
+    grid-row: 1 / 2;
+}

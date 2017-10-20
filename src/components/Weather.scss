@@ -1,0 +1,107 @@
+@import "../materialize/sass/materialize";
+@mixin autoMargins {
+    margin: auto;
+} 
+.weatherCard {
+    display: grid;
+    width: 25vw;
+    margin-top: auto;
+    margin-bottom: auto;
+    
+    grid-column: 10 / 12;
+    grid-row: 2 / 3;
+    
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr span;
+    grid-template-areas: 
+    ". city ."
+    "low now high"
+    "humidity condition UV"
+    "drop drop drop";
+    background-color: color("blue-grey", "lighten-1");
+    color: white;
+    .date {
+        grid-area: date;
+        @include autoMargins();
+    }
+    .city {
+        grid-area: city;
+        @include autoMargins();
+        font-size: 1.2em;
+    }
+    .low {
+        grid-area: low;
+        @include autoMargins();
+        font-size: 1.4em;
+    }
+    .now {
+        grid-area: now;
+        @include autoMargins();
+        font-size: 1.5em;
+    }
+    .high {
+        grid-area: high;
+        @include autoMargins();
+        font-size: 1.4em;
+    }
+    .humidity {
+        grid-area: humidity;
+        @include autoMargins();
+    }
+    .condition {
+        grid-area: condition;
+        @include autoMargins();
+        font-size: 1.3em;
+    }
+    .UV {
+        grid-area: UV;
+        @include autoMargins();
+    }
+}
+
+.forecasts {
+    display: grid;
+    @include autoMargins();
+    width: 1/6vw;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 5;
+    grid-area: 
+            ". day ."
+        ". condition windS"
+        "low . windD"
+        "high . humidity";
+    .fday .condition .windS .low .windD .high .humidity {
+        @include autoMargins(); 
+    }
+    .day {
+        grid-area: day
+    }
+    .condition {
+        grid-area: condition;
+    }
+    .windS {
+        grid-area: windS;
+    }
+    .low {
+        grid-area: low;
+    }
+    .windD {
+        grid-area: windD
+    }
+    .high {
+        grid-area: high
+    }
+    .humidity {
+        grid-area: humidity;
+    }
+}
+
+.weatherDrops {
+    display: grid;
+    grid-area: drop;
+    grid-template-rows: auto;
+}
+.weatherCard :hover .weatherDrops{
+    display: grid;
+}
+

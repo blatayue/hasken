@@ -1,6 +1,6 @@
 const webpack = require('webpack')
 const path = require('path')
-const OfflinePlugin = require('offline-plugin')
+// const OfflinePlugin = require('offline-plugin')
 const OUT_DIR = path.resolve(__dirname, './dist')
 const PORT = process.env.PORT || 9800
 const BUILD = process.env.build || false
@@ -28,19 +28,20 @@ module.exports = {
 
   module: {
     rules: [{
-        test: /\.jsx?$/, 
-        exclude: /node_modules/, 
-        loader: 'babel-loader',
+      test: /\.jsx?$/, 
+      exclude: /node_modules/, 
+      loader: 'babel-loader'
     },
 
     {
       test: /\.scss$/,
+      exclude: path.resolve(__dirname, '/src/materialize'),
       use: [{
-          loader: 'style-loader',
-          options: {
-            hnr: false,
-            sourceMap: true,
-          }
+        loader: 'style-loader',
+        options: {
+          sourceMap: true,
+          hmr: false
+        }
       },
 
       {
@@ -52,7 +53,6 @@ module.exports = {
           sourceMap: true,
         }
       },
-
       {
         loader: 'postcss-loader',
         options: {
@@ -62,25 +62,32 @@ module.exports = {
           ],
         }
       },
-      
+      {
+        loader: 'resolve-url-loader',
+        options: {
+          sourceMap: true
+        }
+      },
       {
         loader: 'sass-loader',
         options: { 
           sourceMap: true 
         }
       }]
+    },
+    {
+      test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+      loader: 'url-loader'
     }]
   },
 
   plugins: [
     new webpack.NamedModulesPlugin(),
     new webpack.optimize.ModuleConcatenationPlugin(),
-    new OfflinePlugin({
-      ServiceWorker : {
-        entry: path.resolve(__dirname, './dist/sw.js')
-      },
-      externals: []
-    })
+    // new OfflinePlugin({
+    //    ServiceWorker: BUILD ? { entry: path.resolve(__dirname, './dist/sw.js') } : null,
+    //   //  AppCache: BUILD ? 
+    // })
   ],
 
   resolve: {
