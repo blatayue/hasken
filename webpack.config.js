@@ -91,6 +91,9 @@ module.exports = {
   ],
 
   resolve: {
-    extensions: ['.js', '.jsx']
+    extensions: ['.js', '.jsx'],
+    alias: {
+      materialize_sass: 'materialize-css/sass'
+    }
   }
 }
