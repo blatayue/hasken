@@ -1,107 +1,115 @@
 @import "~materialize_sass/materialize.scss";
-@mixin autoMargins {
+@mixin weatherItem($grid-item) {
     margin: auto;
+    grid-area: $grid-item;
 } 
 .weatherCard {
     display: grid;
     width: 25vw;
-    margin-top: auto;
-    margin-bottom: auto;
-    
+    height: $navbar-height;
+    margin: auto 0;
     grid-column: 10 / 12;
     grid-row: 2 / 3;
     
+    grid-template-rows: 2;
+    grid-template-columns: 1;
+
+    grid-template-areas: 
+    "currentWeather"
+    "weatherDrops";
+
+    // &:hover .weatherDrops{
+    //     display: grid;
+    // }
+    // &:hover {
+    //     grid-template-rows: $navbar-height 1fr 1fr 1fr;
+    //     height: $navbar-height*4;
+    // }
+}
+.drops {
+    display: grid;
+    margin: auto;
+    width: 20vw;
+    border-top: 2px solid white;
+    font-size: .7rem;
     grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr span;
+    grid-template-rows: 4;
+    grid-template-areas: 
+            ". day ."
+        ". condition windS"
+        "low . windD"
+        "high . humidity";
+
+    .day {
+        @include weatherItem(day);
+    }
+    .condition {
+        @include weatherItem(condition);
+    }
+    .windS {
+        @include weatherItem(windS);
+    }
+    .low {
+        @include weatherItem(low);
+    }
+    .windD {
+        @include weatherItem(windD);
+    }
+    .high {
+        @include weatherItem(high);
+    }
+    .humidity {
+        @include weatherItem(humidity);
+    }
+}
+.dropsContainer {
+    grid-area: drop;
+    display: none;
+    grid-template-rows: auto;
+}
+
+.currentWeather {
+    display: grid;
+    grid-area: currentWeather;
+    color: white;
+    background-color: color("blue-grey", "lighten-1");
+
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: auto;
     grid-template-areas: 
     ". city ."
     "low now high"
     "humidity condition UV"
     "drop drop drop";
-    background-color: color("blue-grey", "lighten-1");
-    color: white;
+
     .date {
-        grid-area: date;
-        @include autoMargins();
+        @include weatherItem(date);
     }
     .city {
-        grid-area: city;
-        @include autoMargins();
-        font-size: 1.2em;
+        @include weatherItem(city);
+        font-size: 1.1em;
     }
     .low {
-        grid-area: low;
-        @include autoMargins();
-        font-size: 1.4em;
+        @include weatherItem(low);
+        font-size: 1.3em;
     }
     .now {
-        grid-area: now;
-        @include autoMargins();
-        font-size: 1.5em;
-    }
-    .high {
-        grid-area: high;
-        @include autoMargins();
+        @include weatherItem(now);
         font-size: 1.4em;
     }
+    .high {
+        @include weatherItem(high);
+        font-size: 1.3em;
+    }
     .humidity {
-        grid-area: humidity;
-        @include autoMargins();
+        @include weatherItem(humidity);
     }
     .condition {
-        grid-area: condition;
-        @include autoMargins();
+        @include weatherItem(condition);
         font-size: 1.3em;
     }
     .UV {
-        grid-area: UV;
-        @include autoMargins();
+        @include weatherItem(UV);
     }
-}
-
-.forecasts {
-    display: grid;
-    @include autoMargins();
-    width: 1/6vw;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 5;
-    grid-area: 
-            ". day ."
-        ". condition windS"
-        "low . windD"
-        "high . humidity";
-    .fday .condition .windS .low .windD .high .humidity {
-        @include autoMargins(); 
-    }
-    .day {
-        grid-area: day
-    }
-    .condition {
-        grid-area: condition;
-    }
-    .windS {
-        grid-area: windS;
-    }
-    .low {
-        grid-area: low;
-    }
-    .windD {
-        grid-area: windD
-    }
-    .high {
-        grid-area: high
-    }
-    .humidity {
-        grid-area: humidity;
-    }
-}
-
-.weatherDrops {
-    display: grid;
-    grid-area: drop;
-    grid-template-rows: auto;
-}
-.weatherCard :hover .weatherDrops{
-    display: grid;
 }
 

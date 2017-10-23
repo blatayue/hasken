@@ -13,7 +13,7 @@ export default class App extends React.Component {
                         <p>Hi, it's a card lol</p>
                     </div>
                 </div> */}
-                <Weather/>
+                {/* <Weather/> */}
             </div>
         )
     }

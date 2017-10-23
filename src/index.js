@@ -1,4 +1,4 @@
-import './conf'
+// import './conf'
 
 import * as OfflinePluginRuntime from 'offline-plugin/runtime';
 OfflinePluginRuntime.install();

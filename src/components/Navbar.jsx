@@ -11,7 +11,7 @@ export default () => (
                     <li><a href="#">Reddit</a></li>
                     <li><a href="#">Other Things</a></li>
                 </ul>
-                {/* <Weather />      */}
+                {<Weather />     }
             </div>
         </nav>
     )

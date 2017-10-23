@@ -11,7 +11,7 @@ class Weather extends React.Component {
         this.state = {}
     }
     async componentDidMount() {
-        if (!this.state.weather) {
+        if (!this.state.forecast) {
             const data = await fetchWeather()
             const today = new Date()
             this.setState({
@@ -20,19 +20,21 @@ class Weather extends React.Component {
             }
         }
         weatherWidget = () => {
-            if (this.state.weather) {
-                const threeDay = this.state.forecast.splice(0, 1)
+            if (this.state.forecast) {
+                // console.log(this.state.forecast)
+                const threeDay = this.state.forecast.slice(1)
+                console.log(threeDay)
                 return (
                     <div className={style.weatherDrops}>
                         {threeDay.map(day => 
-                            <div className={style.forecasts}>
-                                <div className={style.forecasts.day}>{threeDay.date.weekday}</div>
-                                <div className={style.forecasts.condition}>{threeDay.conditions}</div>
-                                <div className={style.forecasts.windS}>{'Average Wind: ' + threeDay.avewind.mph + 'mph'}</div>
-                                <div className={style.forecasts.low}>{'Low: ' + threeDay.low.fahrenheit + 'F'}</div>
-                                <div className={style.forecasts.windD}>{'Wind Direction: ' + threeDay.avewind.dir}</div>
-                                <div className={style.forecasts.high}>{'High: ' + threeDay.high.fahrenheit + 'F'}</div>
-                                <div className={style.forecasts.humidity}>{'Humidity: ' + threeDay.avehumidity + '%'}</div>
+                            <div className={style.forecasts} key={day.date.weekday}>
+                                <div className={style.day}>{day.date.weekday}</div>
+                                <div className={style.condition}>{day.conditions}</div>
+                                <div className={style.windS}>{'Average Wind: ' + day.avewind.mph + 'mph'}</div>
+                                <div className={style.low}>{'Low: ' + day.low.fahrenheit + 'F'}</div>
+                                <div className={style.windD}>{'Wind Direction: ' + day.avewind.dir}</div>
+                                <div className={style.high}>{'High: ' + day.high.fahrenheit + 'F'}</div>
+                                <div className={style.humidity}>{'Humidity: ' + day.avehumidity + '%'}</div>
                             </div>
                         )}
                 </div>

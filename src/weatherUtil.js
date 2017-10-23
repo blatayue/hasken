@@ -1,11 +1,9 @@
 export default (fetcher) => {
-    return async () => {
+    const fetchThing = async () => {
         let data = await fetcher()
         return data
     }
+    return fetchThing
 }
 
-const filterWeather = (day) => {
-
-}
 
