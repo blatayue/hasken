@@ -27,14 +27,14 @@ class Weather extends React.Component {
             console.log(threeDay)
             return (
                 threeDay.map(day => 
-                    <div className={style.drops} key={day.date.weekday}>
-                        <div className={style.day}>{day.date.weekday}</div>
-                        <div className={style.condition}>{day.conditions}</div>
-                        <div className={style.windS}>{'Average Wind: ' + day.avewind.mph + 'mph'}</div>
-                        <div className={style.low}>{'Low: ' + day.low.fahrenheit + 'F'}</div>
-                        <div className={style.windD}>{'Wind Direction: ' + day.avewind.dir}</div>
-                        <div className={style.high}>{'High: ' + day.high.fahrenheit + 'F'}</div>
-                        <div className={style.humidity}>{'Humidity: ' + day.avehumidity + '%'}</div>
+                    <div className={style.forecast} key={day.date.weekday}>
+                        <div className={style.forecast__day}>{day.date.weekday}</div>
+                        <div className={style.forecast__condition}>{day.conditions}</div>
+                        <div className={style.forecast__windSpeed}>{'Average Wind: ' + day.avewind.mph + 'mph'}</div>
+                        <div className={style.forecast__low}>{'Low: ' + day.low.fahrenheit + 'F'}</div>
+                        <div className={style.forecast__windDirection}>{'Wind Direction: ' + day.avewind.dir}</div>
+                        <div className={style.forecast__high}>{'High: ' + day.high.fahrenheit + 'F'}</div>
+                        <div className={style.forecast__humidity}>{'Humidity: ' + day.avehumidity + '%'}</div>
                     </div>
                 )
             )
@@ -43,19 +43,17 @@ class Weather extends React.Component {
     render() {
             return (
                 this.state.current ?
-                    <div className={style.weatherCard}>
-                        <div className={style.currentWeather}>
-                            <div className={style.city}>{this.state.current.display_location.full}</div>
-                            <div className={style.low}>{'Low: ' + this.state.forecast[0].low.fahrenheit + 'F'}</div>
-                            <div className={style.now}>{this.state.current.temp_f + 'F'}</div>
-                            <div className={style.high}>{'High: ' + this.state.forecast[0].high.fahrenheit + 'F'}</div>
-                            <div className={style.humidity}>{'Humidity: ' + this.state.current.relative_humidity}</div>
-                            <div className={style.condition}>{this.state.current.weather}</div>
-                            <div className={style.UV}>{'UV index: ' + this.state.current.UV}</div>
+                    <div className={style.weather}>
+                        <div className={style.weatherNow}>
+                            <div className={style.weatherNow__city}>{this.state.current.display_location.full}</div>
+                            <div className={style.weatherNow__low}>{'Low: ' + this.state.forecast[0].low.fahrenheit + 'F'}</div>
+                            <div className={style.weatherNow__tempNow}>{this.state.current.temp_f + 'F'}</div>
+                            <div className={style.weatherNow__high}>{'High: ' + this.state.forecast[0].high.fahrenheit + 'F'}</div>
+                            <div className={style.weatherNow__humidity}>{'Humidity: ' + this.state.current.relative_humidity}</div>
+                            <div className={style.weatherNow__condition}>{this.state.current.weather}</div>
+                            <div className={style.weatherNow__uvIndex}>{'UV index: ' + this.state.current.UV}</div>
                         </div>
-                        <div className={style.dropsContainer}>
-                            {this.weatherWidget()}
-                        </div>
+                        {this.weatherWidget()}
                     </div> : 
                     null
         )
