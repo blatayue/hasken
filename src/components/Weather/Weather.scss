@@ -1,4 +1,5 @@
 @import "~materialize_sass/materialize.scss";
+
 @mixin weatherItem($grid-item, $font-size:1em) {
     margin: auto;
     grid-area: $grid-item;
@@ -19,7 +20,7 @@
         & > :nth-child(odd) {
             background-color: color("blue-grey", "darken-2")
         }
-        .forecast{
+        .forecast {
             display: grid;
         }
     }
@@ -32,7 +33,7 @@
     line-height: $navbar-height/3;
     color: white;
     background-color: color("blue-grey", "base");
-    
+
     grid-row: 1/ span 1;
     
     grid-template-rows: 3;
