@@ -1,0 +1,123 @@
+@import "~materialize_sass/materialize.scss";
+@mixin weatherItem($grid-item) {
+    margin: auto;
+    grid-area: $grid-item;
+} 
+.weatherCard {
+    display: grid;
+    width: 25vw;
+    margin: auto 0;
+    margin-left: auto;
+
+    grid-column: 10 / 12;
+    grid-row: 2 / span 1;
+
+    grid-template-rows: $navbar-height 1fr;
+    grid-template-areas: 
+    "currentWeather"
+    "dropsContainer";
+
+    &:hover .dropsContainer{
+        display: grid;
+    }
+}
+.currentWeather {
+    display: grid;
+    width: 25vw;
+    height: $navbar-height;
+    line-height: $navbar-height/3;
+    color: white;
+    background-color: color("blue-grey", "base");
+    
+    grid-area: currentWeather;
+
+    grid-template-rows: 3;
+    grid-template-columns: 3;
+    grid-template-areas: 
+    ". city ."
+    "low now high"
+    "humidity condition UV";
+
+    .date {
+        @include weatherItem(date);
+    }
+    .city {
+        @include weatherItem(city);
+        font-size: 1.1em;
+    }
+    .low {
+        @include weatherItem(low);
+        font-size: 1.3em;
+    }
+    .now {
+        @include weatherItem(now);
+        font-size: 1.4em;
+    }
+    .high {
+        @include weatherItem(high);
+        font-size: 1.3em;
+    }
+    .humidity {
+        @include weatherItem(humidity);
+    }
+    .condition {
+        @include weatherItem(condition);
+        font-size: 1.2em;
+    }
+    .UV {
+        @include weatherItem(UV);
+    }
+}
+.dropsContainer {
+    grid-area: dropsContainer;
+    display: none;
+    margin: auto;
+    color: white;
+}
+.drops {
+    display: grid;
+    width: 25vw;
+    margin: auto;
+    height: $navbar-height*1.2;
+    line-height: $navbar-height/4;
+    background-color: color("blue-grey", "lighten-1");   
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    grid-template-areas: 
+             ". day ."
+        "low . windS"
+           "high condition windD"
+              ". . humidity";
+    &:nth-child(odd) {
+        background-color: color("blue-grey", "darken-1")
+    }
+    .day {
+        @include weatherItem(day);
+        font-size: 1.2em;
+    }
+    .condition {
+        @include weatherItem(condition);
+        font-size: 1.3em;
+    }
+    .windS {
+        @include weatherItem(windS);
+        font-size: .9em;
+    }
+    .low {
+        @include weatherItem(low);
+        font-size: 1em;
+    }
+    .windD {
+        @include weatherItem(windD);
+        font-size: .9em;
+    }
+    .high {
+        @include weatherItem(high);
+        font-size: 1rem;
+    }
+    .humidity {
+        @include weatherItem(humidity);
+        font-size: .9em;
+    }
+}
+

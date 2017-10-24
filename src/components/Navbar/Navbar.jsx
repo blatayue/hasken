@@ -1,6 +1,6 @@
 import React from 'react'
 import style from './Navbar.scss'
-import Weather from './Weather'
+import Weather from '../Weather/Weather'
 export default () => (
         <nav>
             <div className={style.navWrap}>
@@ -11,7 +11,7 @@ export default () => (
                     <li><a href="#">Reddit</a></li>
                     <li><a href="#">Other Things</a></li>
                 </ul>
-                {<Weather />     }
+                <Weather />
             </div>
         </nav>
     )
