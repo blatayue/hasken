@@ -6,7 +6,8 @@ const PORT = process.env.PORT || 9800
 const BUILD = process.env.build || false
 
 module.exports = {
-  devtool: 'source-map',
+  devtool: 'eval-cheap-module-source-map',
+  historyApiFallback: true,
   entry: {
       'app': [
         'babel-polyfill',
