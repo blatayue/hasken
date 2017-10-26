@@ -11,12 +11,10 @@ export const fetchWeather = weatherApiUri =>
                 await (await fetch(weatherApiUri)).json()
             )
             const data = await weatherFetch()
-            console.log(data)
             const current = data.current_observation
             const threeDay = data.forecast.simpleforecast.forecastday
             .slice(1)
             .map(forecastMap)
-            console.log(threeDay)
             dispatch({
                 type: WEATHER_SUCCESS,
                 current,
@@ -25,7 +23,6 @@ export const fetchWeather = weatherApiUri =>
             })
 
         } catch (err) {
-            console.log(err)
             return err
         }
     }
@@ -46,7 +43,6 @@ export const reduceWeather = (state = {}, action) => {
 }
 
 const forecastMap = (day) => {
-    console.log(day)
     return {
         weekday: day.date.weekday,
         condition: day.conditions,
@@ -59,7 +55,6 @@ const forecastMap = (day) => {
 }
 
 export const mapStateToWeather = state => {
-    console.log(state)
     if (!state.current) return {}
     return {
         full: state.current.display_location.full,

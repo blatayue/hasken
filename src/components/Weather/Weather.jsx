@@ -9,7 +9,6 @@ class WeatherContainer extends React.Component {
         super(props)
     }
     componentDidMount () {
-        console.log('fired')
         this.props.dispatch(fetchWeather(weatherApiUri))
     }
     render () {
