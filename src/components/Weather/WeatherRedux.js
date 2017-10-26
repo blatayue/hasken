@@ -1,15 +1,12 @@
-import createFetch from '../../fetchUtil'
+
 
 //types
 const WEATHER_SUCCESS = 'WEATHER_SUCCESS'
 
-export const fetchWeather = weatherApiUri => 
+export const fetchWeather = fetcher => 
     async (dispatch) => {
         try {
-            const weatherFetch = createFetch(async () => 
-                await (await fetch(weatherApiUri)).json()
-            )
-            const data = await weatherFetch()
+            const data = await fetcher()
             const current = data.current_observation
             const threeDay = data.forecast.simpleforecast.forecastday
             .slice(1)

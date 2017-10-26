@@ -1,15 +1,18 @@
 import React from 'react'
+import style from './Weather.scss'
 import { connect } from 'react-redux'
 import { fetchWeather, mapStateToWeather } from './WeatherRedux'
-import style from './Weather.scss'
+import createFetch from '../../fetchUtil'
 const weatherApiUri = 'https://api.wunderground.com/api/1152f09242a61822/forecast/conditions/q/AZ/Glendale.json'
-
+const weatherFetcher = createFetch(async () => 
+await (await fetch(weatherApiUri)).json()
+)
 class WeatherContainer extends React.Component {
     constructor(props) {
         super(props)
     }
     componentDidMount () {
-        this.props.dispatch(fetchWeather(weatherApiUri))
+        this.props.dispatch(fetchWeather(weatherFetcher))
     }
     render () {
         return (
