@@ -19,7 +19,7 @@
         >:nth-child(odd) {
             background-color: color("blue-grey", "darken-2");
         }
-        &>.forecast {
+        .forecast {
             display: grid;
         }
     }
@@ -66,5 +66,40 @@
     }
     .weatherNow__uvIndex {
         @include weatherItem(UV);
+    }
+}
+.forecast {
+    display: none;
+    width: 25vw;
+    margin: auto;
+    height: $navbar-height;
+    line-height: $navbar-height/4;
+    background-color: color("blue-grey", "base");   
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-areas: 
+        ". day windS"
+    "low condition windD"
+    "high . humidity";
+    .forecast__day {
+        @include weatherItem(day, 1.2em);
+    }
+    .forecast__condition {
+        @include weatherItem(condition, 1.3em);
+    }
+    .forecast__windSpeed {
+        @include weatherItem(windS, 0.9em);
+    }
+    .forecast__low {
+        @include weatherItem(low);
+    }
+    .forecast__windDirection {
+        @include weatherItem(windD, 0.9em);
+    }
+    .forecast__high {
+        @include weatherItem(high);
+    }
+    .forecast__humidity {
+        @include weatherItem(humidity, 0.9em);
     }
 }

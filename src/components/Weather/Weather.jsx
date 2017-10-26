@@ -1,7 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { fetchWeather, mapStateToWeather } from './WeatherRedux'
-import Forecast from './Forecast/Forecast';
 import style from './Weather.scss'
 const weatherApiUri = 'https://api.wunderground.com/api/1152f09242a61822/forecast/conditions/q/AZ/Glendale.json'
 
@@ -35,16 +34,15 @@ class WeatherContainer extends React.Component {
                 {
                 this.props.threeDay ? 
                 this.props.threeDay.map(day => 
-                    <Forecast 
-                     key={day.weekday}
-                     weekDay={day.weekday}
-                     condition={day.condition}
-                     windSpeed={day.windSpeed}
-                     windDirection={day.windDirection}
-                     lowF={day.lowF}
-                     highF={day.highF}
-                     humidity={day.humidity}
-                     />
+                    <div className={style.forecast}>
+                        <div className={style.forecast__day}>{day.weekday}</div>
+                        <div className={style.forecast__condition}>{day.conditions}</div>
+                        <div className={style.forecast__windSpeed}>{day.windSpeed}</div>
+                        <div className={style.forecast__low}>{day.lowF}</div>
+                        <div className={style.forecast__windDirection}>{day.windDirection}</div>
+                        <div className={style.forecast__high}>{day.highF}</div>
+                        <div className={style.forecast__humidity}>{day.humidity}</div>
+                    </div>
                 ) : null}
             </div>
         )
