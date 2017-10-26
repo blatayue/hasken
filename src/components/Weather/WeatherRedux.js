@@ -7,7 +7,11 @@ const WEATHER_SUCCESS = 'WEATHER_SUCCESS'
 export const fetchWeather = weatherApiUri => 
     async (dispatch) => {
         try {
-            const data = await (await fetch(weatherApiUri)).json()
+            const weatherFetch = createFetch(async () => 
+                await (await fetch(weatherApiUri)).json()
+            )
+            const data = await weatherFetch()
+            console.log(data)
             const current = data.current_observation
             const threeDay = data.forecast.simpleforecast.forecastday
             .slice(1)

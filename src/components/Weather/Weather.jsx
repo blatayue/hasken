@@ -34,7 +34,7 @@ class WeatherContainer extends React.Component {
                 {
                 this.props.threeDay ? 
                 this.props.threeDay.map(day => 
-                    <div className={style.forecast}>
+                    <div className={style.forecast} key={day.weekday}>
                         <div className={style.forecast__day}>{day.weekday}</div>
                         <div className={style.forecast__condition}>{day.conditions}</div>
                         <div className={style.forecast__windSpeed}>{day.windSpeed}</div>
