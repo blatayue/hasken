@@ -1,7 +1,6 @@
 import createFetch from '../../fetchUtil'
 
 //types
-const FETCH_WEATHER = 'FETCH_WEATHER'
 const WEATHER_SUCCESS = 'WEATHER_SUCCESS'
 
 export const fetchWeather = weatherApiUri => 
