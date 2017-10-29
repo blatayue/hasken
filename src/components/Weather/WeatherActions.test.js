@@ -18,8 +18,8 @@ describe('async fetches', () => {
         fetchMock.restore()
     })
 })
-describe('Weather Fetch Action Creator', () => {
-    it('Should create WEATHER_SUCCESS on success', () => {
+describe('Weather API thunk', () => {
+    it('Should dispatch WEATHER_SUCCESS on fetch success with weather info', () => {
         fetchMock.getOnce(weatherApiUri,
         {body: testData})
         const store = mockStore({})

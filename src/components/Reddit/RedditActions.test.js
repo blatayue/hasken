@@ -1,6 +1,6 @@
 import * as actions from './RedditActions'
 import * as types from './RedditActionTypes'
-import testData from './Reddit.fixture.json'
+import testData from './RedditWebDev.fixture.json'
 import chai from 'chai'
 import chaiPromised from 'chai-as-promised'
 chai.use(chaiPromised)
@@ -19,14 +19,15 @@ describe('async fetches', () => {
     })
 })
 describe('Reddit thunk', () => {
-    it('Should get reddit /r/webdev json, map the posts, dispatch', () => {
+    it('Should fetch reddit /r/webdev json, map the posts, dispatch REDDIT_SUCCESS', () => {
         fetchMock.getOnce(redditUri, {body: testData})
         const store = mockStore({})
         const posts = testData.data.children.map(actions.mapPosts)
         const expectedActions = [
             {
                 type: types.REDDIT_SUCCESS,
-                data: posts
+                data: posts,
+                sub: 'webdev'
             }
         ]
         store.dispatch(actions.getWebDevPosts()).then(() => {

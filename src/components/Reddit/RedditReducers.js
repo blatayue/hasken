@@ -4,7 +4,10 @@ export const redditReducer = (state = {}, action) => {
         case types.REDDIT_SUCCESS:
             return {
                 ...state,
+                
                 redditPosts: action.data
             }
+        default:
+            return state
     }
 } 

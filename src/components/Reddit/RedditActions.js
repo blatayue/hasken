@@ -8,12 +8,12 @@ async (dispatch) => {
 
     return dispatch({
         type: types.REDDIT_SUCCESS,
-        data: posts
+        data: posts,
+        sub: 'webdev'
     })
 }
 
-export const mapPosts = post => {
-    return {
+export const mapPosts = post => ({
         title: post.title,
         thumbnail: post.thumbnail,
         thumbnail_height: post.thumbnail_height,
@@ -21,6 +21,4 @@ export const mapPosts = post => {
         url: post.url,
         score: post.score,
         num_comments: post.num_comments,
-    }
-
-}
+})
