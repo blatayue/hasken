@@ -7,8 +7,6 @@ chai.use(chaiPromised)
 import fetchMock from 'fetch-mock'
 import configureMockStore from 'redux-mock-store'
 import thunk from 'redux-thunk'
-import _ from 'lodash'
-import deepDiff from 'deep-diff'
 const expect = chai.expect
 const should = chai.should()
 const middlewares = [ thunk ]
@@ -31,7 +29,7 @@ describe('Weather Fetch Action Creator', () => {
         .slice(1)
         .map(actions.forecastMap)
 
-        const expectedAction = [
+        const expectedActions = [
             {type: types.WEATHER_SUCCESS,
                 today,
                 threeDay,
@@ -40,7 +38,9 @@ describe('Weather Fetch Action Creator', () => {
         ]
         store.dispatch(actions.fetchWeather()).then(() => {
             const storeActions = store.getActions()
-            expect(storeActions[0]).to.deep.equal(expectedAction[0])
+            storeActions.map((action, i) => {
+                action.should.deep.equal(expectedActions[i])
+            })
         })
         
     })
