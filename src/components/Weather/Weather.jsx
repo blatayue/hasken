@@ -3,14 +3,14 @@ import style from './Weather.scss'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import * as WeatherActions from './WeatherActions'
-const weatherApiUri = 'https://api.wunderground.com/api/1152f09242a61822/forecast/conditions/q/AZ/Glendale.json'
+
 
 class WeatherContainer extends React.Component {
     constructor(props) {
         super(props)
     }
     componentDidMount () {
-        this.props.dispatch(WeatherActions.fetchWeather(weatherApiUri))
+        this.props.dispatch(WeatherActions.fetchWeather())
     }
     render () {
         return (

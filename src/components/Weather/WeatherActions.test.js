@@ -38,7 +38,7 @@ describe('Weather Fetch Action Creator', () => {
                 current
             }
         ]
-        store.dispatch(actions.fetchWeather(weatherApiUri)).then(() => {
+        store.dispatch(actions.fetchWeather()).then(() => {
             const storeActions = store.getActions()
             expect(storeActions[0]).to.deep.equal(expectedAction[0])
         })

@@ -1,6 +1,6 @@
 import * as types from './WeatherActionTypes'
-
-export const fetchWeather = weatherApiUri => 
+const weatherApiUri = 'https://api.wunderground.com/api/1152f09242a61822/forecast/conditions/q/AZ/Glendale.json'
+export const fetchWeather = () => 
     async (dispatch) => {
         try {
             const data = await (await fetch(weatherApiUri)).json()
@@ -19,7 +19,7 @@ export const fetchWeather = weatherApiUri =>
             console.log(err)
             return dispatch({type: types.WEATHER_ERROR, err})
         }
-    }
+}
 export const forecastMap = (day) => {
     return {
         weekday: day.date.weekday,
