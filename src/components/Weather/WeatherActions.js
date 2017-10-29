@@ -1,13 +1,5 @@
 import * as types from './WeatherActionTypes'
 
-export const weatherSuccess = ({ current, threeDay, today }) => ({
-    type: types.weatherSuccess,
-    current,
-    threeDay,
-    today
-
-})
-
 const weatherErr = (err) => ({
     type: types.WEATHER_ERROR,
     err
