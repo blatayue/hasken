@@ -74,11 +74,17 @@ module.exports = {
           sourceMap: true 
         }
       }]
-    },
-    {
-      test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
-      loader: 'url-loader'
-    }]
+      },
+        {
+          test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+          loader: 'url-loader'
+        },
+      {
+        test: /\.(png|jpg|svg)$/,
+        exclude: /node_modules/,
+        loader: 'url-loader'
+      },
+    ]
   },
 
   plugins: [
