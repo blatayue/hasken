@@ -1,0 +1,46 @@
+@import "~materialize_sass/materialize.scss";
+.link {
+    // make flexbox
+    display: flex;
+    margin-top: 10%;
+    grid-row: 2 / span 1;
+    grid-column: 1 / span 3;
+    justify-content: space-around;
+    // padding-right: 25%;
+    // grid-template: auto / repeat(24, 1fr);
+    height: 3rem;
+}
+
+.link__reddit {
+    display: grid;
+    // grid-column: 2 / span 2;
+    background-color: color("blue-grey", "base");
+    color: white;
+    border-radius: 24px;
+    height: 3rem;
+    grid-template: 1fr / 3rem 1fr;
+    img {
+        grid-column: 1 /span 1;
+        border-radius: 50%;
+        height: 3rem;
+        width: 3rem;
+    }
+    p {
+        margin: auto 0;
+        margin-left: 15%;
+        margin-right: 35%;
+        grid-column: 2;
+    }
+}
+
+.link__medium {
+    @extend .link__reddit;
+    color: #18B475;
+    // grid-column: 4 / span 2;
+}
+
+.link__youtube {
+    @extend .link__reddit;
+    color: #282828;
+    // grid-column: 6 / span 2;
+}
