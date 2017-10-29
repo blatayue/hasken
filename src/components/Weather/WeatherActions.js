@@ -1,9 +1,5 @@
 import * as types from './WeatherActionTypes'
 
-const weatherErr = (err) => ({
-    type: types.WEATHER_ERROR,
-    err
-})
 export const fetchWeather = weatherApiUri => 
     async (dispatch) => {
         try {
