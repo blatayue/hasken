@@ -1,6 +1,6 @@
 import * as types from './WeatherActionTypes'
 
-export const reduceWeather = (state = {}, action) => {
+export const weatherReducer = (state = {}, action) => {
     switch(action.type) {
         case types.WEATHER_SUCCESS:
             return {
