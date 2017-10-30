@@ -5,11 +5,9 @@ export const getWebDevPosts = () =>
 async (dispatch) => {
     const redditData = await (await fetch(redditWebDev)).json()
     const posts = redditData.data.children.map(mapPosts)
-
     return dispatch({
         type: types.REDDIT_SUCCESS,
         data: posts,
-        sub: 'webdev'
     })
 }
 
@@ -22,4 +20,5 @@ export const mapPosts = post => ({
         score: post.data.score,
         num_comments: post.data.num_comments,
         permalink: `https://www.reddit.com${post.data.permalink}`,
+        author: post.data.author,
 })

@@ -14,7 +14,7 @@ const reducers = combineReducers({
   weatherReducer,
   redditReducer
 })
-const store = createStore(reduceWeather, composeWithDevTools(applyMiddleware(thunk)))
+const store = createStore(reducers, composeWithDevTools(applyMiddleware(thunk)))
 
 const render = Component => {
   ReactDOM.render(

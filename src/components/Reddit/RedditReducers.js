@@ -4,7 +4,7 @@ export const redditReducer = (state = {}, action) => {
         case types.REDDIT_SUCCESS:
             return {
                 ...state,
-                
+                isDoneLoading: true,
                 redditPosts: action.data
             }
         default:

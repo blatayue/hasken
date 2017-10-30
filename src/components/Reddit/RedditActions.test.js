@@ -27,7 +27,6 @@ describe('Reddit thunk', () => {
             {
                 type: types.REDDIT_SUCCESS,
                 data: posts,
-                sub: 'webdev'
             },
         ]
         store.dispatch(actions.getWebDevPosts()).then(() => {
