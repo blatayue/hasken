@@ -1,7 +1,7 @@
 .post {
     display: grid;
     grid-template-rows: 1fr 1fr;
-    grid-template-columns: 1fr 1fr 8fr;
+    grid-template-columns: 1fr 1fr 6fr;
     grid-template-areas: 
     "postScore thumbnail title"
     "postScore thumbnail authorAndComments";
@@ -14,10 +14,10 @@
     }
     .post__title {
         grid-area: title;
-        height: 4rem;
         margin-top: auto;
-        margin-bottom: 0;
+        max-height: 5rem;
         h2 {
+            margin-bottom: 0;
             font-size: 1rem;
         }
     }
@@ -31,10 +31,13 @@
     .post__thumbLink {
         grid-area: thumbnail;
         margin-top: auto;
+        height: 4rem;
+        width: 4rem;
     }
     .post__thumbnail {
         height: 4rem;
         width: 4rem;
+        margin-right: 1rem;
     }
     .post__flex {
         display: flex;
