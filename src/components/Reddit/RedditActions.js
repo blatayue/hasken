@@ -14,11 +14,12 @@ async (dispatch) => {
 }
 
 export const mapPosts = post => ({
-        title: post.title,
-        thumbnail: post.thumbnail,
-        thumbnail_height: post.thumbnail_height,
-        stickied: post.stickied,
-        url: post.url,
-        score: post.score,
-        num_comments: post.num_comments,
+        title: post.data.title,
+        thumbnail: post.data.thumbnail,
+        thumbnail_height: post.data.thumbnail_height,
+        stickied: post.data.stickied,
+        url: post.data.url,
+        score: post.data.score,
+        num_comments: post.data.num_comments,
+        permalink: `https://www.reddit.com${post.data.permalink}`,
 })
