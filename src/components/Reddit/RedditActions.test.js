@@ -19,20 +19,21 @@ describe('async fetches', () => {
     })
 })
 describe('Reddit thunk', () => {
-    it('Should fetch reddit /r/webdev json, map the posts, dispatch REDDIT_SUCCESS', () => {
+    it('Should dispatch REDDIT_SUCCESS on fetch reddit success with the right keys', 
+    (done) => {
         fetchMock.getOnce(redditUri, {body: testData})
         const store = mockStore({})
-        const posts = testData.data.children.map(actions.mapPosts)
-        const expectedActions = [
-            {
-                type: types.REDDIT_SUCCESS,
-                data: posts,
-            },
+        const expectedActionsKeys = [
+            [
+                'type',
+                'data'
+            ],
         ]
         store.dispatch(actions.getWebDevPosts()).then(() => {
             const storeActions = store.getActions()
             storeActions.map((action, i) => {
-                action.should.deep.equal(expectedActions[i])
+                action.should.have.keys(expectedActionsKeys[i])
+                done()
             })
         })
     })

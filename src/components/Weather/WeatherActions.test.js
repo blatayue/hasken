@@ -19,27 +19,25 @@ describe('async fetches', () => {
     })
 })
 describe('Weather API thunk', () => {
-    it('Should dispatch WEATHER_SUCCESS on fetch success with weather info', () => {
+    it('Should dispatch WEATHER_SUCCESS on fetch success with right weather keys', 
+    (done) => {
         fetchMock.getOnce(weatherApiUri,
         {body: testData})
         const store = mockStore({})
-        const current = testData.current_observation
-        const today = testData.forecast.simpleforecast.forecastday[0]
-        const threeDay = testData.forecast.simpleforecast.forecastday
-        .slice(1)
-        .map(actions.forecastMap)
 
-        const expectedActions = [
-            {type: types.WEATHER_SUCCESS,
-                today,
-                threeDay,
-                current
-            }
+        const expectedActionsKeys = [
+            [
+                'type',
+                'today',
+                'threeDay',
+                'current'
+            ]
         ]
         store.dispatch(actions.fetchWeather()).then(() => {
             const storeActions = store.getActions()
             storeActions.map((action, i) => {
-                action.should.deep.equal(expectedActions[i])
+                action.should.have.keys(expectedActionsKeys[i])
+                done()
             })
         })
         
