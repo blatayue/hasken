@@ -1,0 +1,51 @@
+.post {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 8fr;
+    grid-template-areas: 
+    "postScore thumbnail title"
+    "postScore thumbnail authorAndComments";
+    margin-bottom: 1rem;
+    height: 5rem;
+    .post__score {
+        grid-area: postScore;
+        margin: 2.5rem auto 0 auto;
+    
+    }
+    .post__title {
+        grid-area: title;
+        height: 4rem;
+        margin-top: auto;
+        margin-bottom: 0;
+        h2 {
+            font-size: 1rem;
+        }
+    }
+    .post__title--stickied {
+        @extend .post__title;
+        color: green;
+        h2 {
+            font-size: 1rem;
+        }
+    }
+    .post__thumbLink {
+        grid-area: thumbnail;
+        margin-top: auto;
+    }
+    .post__thumbnail {
+        height: 4rem;
+        width: 4rem;
+    }
+    .post__flex {
+        display: flex;
+        grid-area: authorAndComments;
+        flex-basis: content;
+        .post__author {
+            margin: 0 1rem auto 0;
+        }
+        .post__commentsLink {
+            margin: 0 1rem auto 0;
+        }
+    }    
+}
+
