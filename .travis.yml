@@ -7,7 +7,7 @@ cache:
     - node_modules
 script:
 - travis_fold:start:npmls
-- npm ls --depth 0
+- npm ls
 - travis_fold:end:npmls
 - "npm test"
 - "npm run lint"
