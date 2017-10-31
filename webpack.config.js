@@ -58,6 +58,7 @@ module.exports = {
     //    ServiceWorker: BUILD ? { entry: path.resolve(__dirname, './dist/sw.js') } : null,
     //   //  AppCache: BUILD ? 
     // })
+    
     // jsx
     new HappyPack({
       id: 'jsx',
