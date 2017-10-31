@@ -2,6 +2,7 @@ const merge = require('webpack-merge')
 const base = require('./base.config.js')
 const path = require('path')
 const OUT_DIR = path.resolve(__dirname, '../dist')
+const purify = require('purifycss-webpack-plugin')
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin')
 const OfflinePlugin = require('offline-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
@@ -50,11 +51,20 @@ module.exports = merge.smart(base, {
               }
             ]
         }),
+        new ExtractTextPlugin('style.css'),
+        new purify({
+            basePath: path.resolve(__dirname),
+            paths: [
+            './src/components/**/*.jsx'
+            ],
+            options: {
+                minify: true
+            }
+        }),
         new OfflinePlugin({
             ServiceWorker: { 
                 entry: path.resolve(OUT_DIR, './sw.js') 
             },
         }),
-        new ExtractTextPlugin('style.css'),
     ]
 })

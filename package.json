@@ -42,6 +42,7 @@
     "offline-plugin": "^4.8.4",
     "postcss-loader": "^2.0.8",
     "prop-types": "^15.6.0",
+    "purifycss-webpack-plugin": "^2.0.3",
     "react": "^16.0.0",
     "react-async-bootstrapper": "^1.1.2",
     "react-dom": "^16.0.0",
