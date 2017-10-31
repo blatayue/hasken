@@ -4,7 +4,7 @@ import Weather from '../Weather/Weather'
 export default () => (
         <nav>
             <div className={style.navWrap}>
-                <a href="#" className='brand-logo'>Homepage</a>
+                <a href="#" className={style.brand}>Homepage</a>
                 <Weather />
             </div>
         </nav>

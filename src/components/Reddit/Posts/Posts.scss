@@ -7,6 +7,13 @@
     "postScore thumbnail authorAndComments";
     margin-bottom: 1rem;
     height: 5rem;
+    a {
+        color: #039be5;
+        text-decoration: none;
+    
+      // Gets rid of tap active state
+      -webkit-tap-highlight-color: transparent;
+    }
     .post__score {
         grid-area: postScore;
         margin: 2.5rem auto 0 auto;

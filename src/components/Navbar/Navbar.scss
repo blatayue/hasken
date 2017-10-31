@@ -1,8 +1,8 @@
-@import "~materialize_sass/materialize.scss";
+
 .navWrap {
-    @extend .nav-wrapper;
     display: flex;
-    background-color: color("blue-grey", "base");
+    height: 4rem;
+    background-color: #607d8b;
     a {
         font-size: 1.25em;
         margin-right: .75em;
@@ -12,4 +12,16 @@
 nav {
     grid-column: 1 / 13;
     grid-row: 1 / span 1;
+    margin-bottom: 1rem;
+}
+a {
+	color: white;
+	text-decoration: none;
+
+  // Gets rid of tap active state
+  -webkit-tap-highlight-color: transparent;
+}
+
+.brand {
+    margin: auto auto auto 4rem;
 }
