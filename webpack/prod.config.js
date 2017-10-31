@@ -12,7 +12,7 @@ const HappyPack = require('happypack')
 module.exports = merge.smart(base, {
     output: {
         path: OUT_DIR,
-        publicPath: '/',
+        publicPath: '/hasken/',
         filename: '[name].js',
     },
     module: {
