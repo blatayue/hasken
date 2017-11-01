@@ -51,7 +51,7 @@ module.exports = merge.smart(base, {
               }
             ]
         }),
-        new ExtractTextPlugin('style.css'),
+        new ExtractTextPlugin('[name].style.css'),
         new purify({
             basePath: path.resolve(__dirname),
             paths: [
