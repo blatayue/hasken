@@ -3,7 +3,6 @@ const base = require('./base.config.js')
 const path = require('path')
 const OUT_DIR = path.resolve(__dirname, '../dist')
 const purify = require('purifycss-webpack-plugin')
-const UglifyJSPlugin = require('uglifyjs-webpack-plugin')
 const OfflinePlugin = require('offline-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const webpack = require('webpack')
@@ -24,7 +23,7 @@ module.exports = merge.smart(base, {
     ]
     },
     plugins: [
-        new UglifyJSPlugin(),
+        new webpack.optimize.UglifyJsPlugin(),
         new HappyPack({
             id: 'jsx',
             loaders: ['babel-loader']
