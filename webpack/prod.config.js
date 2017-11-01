@@ -2,7 +2,6 @@ const merge = require('webpack-merge')
 const base = require('./base.config.js')
 const path = require('path')
 const OUT_DIR = path.resolve(__dirname, '../dist')
-const purify = require('purifycss-webpack-plugin')
 const OfflinePlugin = require('offline-plugin')
 const webpack = require('webpack')
 const HappyPack = require('happypack')
@@ -31,6 +30,7 @@ module.exports = merge.smart(base, {
         new HappyPack ({
             id: 'style',
             loaders: [
+              'style-loader',
               'css-loader',
               {
                 loader: 'postcss-loader',
