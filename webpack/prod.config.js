@@ -35,7 +35,6 @@ module.exports = merge.smart(base, {
               {
                 loader: 'postcss-loader',
                 options: {
-                  sourceMap: true,
                   config: {
                     path: path.resolve(__dirname, './postcss.config.js')
                   }
