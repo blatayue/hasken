@@ -31,10 +31,10 @@ describe('Reddit thunk', () => {
         ]
         store.dispatch(actions.getWebDevPosts()).then(() => {
             const storeActions = store.getActions()
-            storeActions.map((action, i) => {
+            storeActions.forEach((action, i) => {
                 action.should.have.keys(expectedActionsKeys[i])
-                done()
             })
+            done()
         })
     })
 })

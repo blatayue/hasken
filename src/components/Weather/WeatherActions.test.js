@@ -35,10 +35,10 @@ describe('Weather API thunk', () => {
         ]
         store.dispatch(actions.fetchWeather()).then(() => {
             const storeActions = store.getActions()
-            storeActions.map((action, i) => {
+            storeActions.forEach((action, i) => {
                 action.should.have.keys(expectedActionsKeys[i])
-                done()
             })
+            done()
         })
         
     })
