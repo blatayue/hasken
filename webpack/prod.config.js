@@ -4,7 +4,6 @@ const path = require('path')
 const OUT_DIR = path.resolve(__dirname, '../dist')
 const purify = require('purifycss-webpack-plugin')
 const OfflinePlugin = require('offline-plugin')
-const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const webpack = require('webpack')
 const HappyPack = require('happypack')
 
@@ -18,7 +17,7 @@ module.exports = merge.smart(base, {
         rules: [
             {
             test: /\.scss$/,
-            loader: ExtractTextPlugin.extract('happypack/loader?id=style')
+            loader: 'happypack/loader?id=style'
         }
     ]
     },
@@ -49,13 +48,6 @@ module.exports = merge.smart(base, {
                   sourceMap: true 
                 }
               }
-            ]
-        }),
-        new ExtractTextPlugin('[name].style.css'),
-        new purify({
-            basePath: path.resolve(__dirname),
-            paths: [
-            './src/components/**/*.jsx'
             ]
         }),
         new OfflinePlugin({
