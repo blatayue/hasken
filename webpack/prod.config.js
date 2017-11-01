@@ -37,6 +37,7 @@ module.exports = merge.smart(base, {
               {
                 loader: 'postcss-loader',
                 options: {
+                  sourceMap: true,
                   config: {
                     path: path.resolve(__dirname, './postcss.config.js')
                   }
@@ -56,10 +57,7 @@ module.exports = merge.smart(base, {
             basePath: path.resolve(__dirname),
             paths: [
             './src/components/**/*.jsx'
-            ],
-            options: {
-                minify: true
-            }
+            ]
         }),
         new OfflinePlugin({
             ServiceWorker: { 
