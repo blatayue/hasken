@@ -1,3 +1,4 @@
+@import "~sassVariables";
 .post {
     display: grid;
     grid-template-rows: 1fr 1fr;
@@ -5,11 +6,18 @@
     grid-template-areas: 
     "postArrow thumbnail title"
     "postScore thumbnail authorAndComments";
-    margin-bottom: 1rem;
-    margin-left: 1rem;
+    border: solid 1px;
+    margin: -0.5px 1rem;
     height: 5rem;
+    color: $accent;
+    &:first-child {
+        border-radius: 8px 8px 0px 0px;
+    }
+    &:last-child {
+        border-radius: 0px 0px 8px 8px;
+    }
     a {
-        color: #039be5;
+        color: $accent;
         text-decoration: none;
     
       // Gets rid of tap active state

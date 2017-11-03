@@ -1,8 +1,8 @@
-
+@import "~sassVariables";
 .navWrap {
     display: flex;
     height: 4rem;
-    background-color: #607d8b;
+    background-color: $primary-dark;
     a {
         font-size: 1.25em;
         margin-right: .75em;

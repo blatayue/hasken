@@ -33,7 +33,8 @@ module.exports = {
   resolve: {
     extensions: ['.js', '.jsx'],
     alias: {
-      images: path.resolve(__dirname, '../src/images/')
+      images: path.resolve(__dirname, '../src/images/'),
+      sassVariables$: path.resolve(__dirname, '../src/_variables.scss')
     },
     modules: [
       path.resolve('./'),

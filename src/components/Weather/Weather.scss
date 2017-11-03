@@ -1,3 +1,4 @@
+@import "~sassVariables";
 @mixin weatherItem($grid-item, $font-size:1em) {
     margin: auto;
     grid-area: $grid-item;
@@ -8,14 +9,17 @@
     width: 25vw;
     margin: auto 0;
     margin-left: auto;
-
+    color: $accent;
     grid-column: 10 / span 3;
     grid-row: 2 / span 1;
 
     grid-template-rows: 64px auto;
     &:hover {
+        > :last-child {
+            border-radius: 0px 0px 5px 5px;
+        }
         >:nth-child(odd) {
-            background-color: #455a64;
+            background-color: $primary;
         }
         .forecast {
             display: grid;
@@ -30,7 +34,7 @@
     height: 4rem;
     line-height: .75em;
     color: white;
-    background-color: #607d8b;
+    background-color: $primary-dark;
 
     grid-row: 1/ span 1;
     
@@ -72,7 +76,7 @@
     margin: auto;
     height: 64px;
     line-height: 16px;
-    background-color: #607d8b;   
+    background-color: $primary-dark;   
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr;
     grid-template-areas: 

@@ -1,5 +1,5 @@
 import * as types from './RedditActionTypes'
-const redditWebDev = 'https://www.reddit.com/r/webdev/hot.json?limit=10'
+const redditWebDev = 'https://www.reddit.com/r/webdev/hot.json?limit=9'
 
 export const getWebDevPosts = () => 
 async (dispatch) => {

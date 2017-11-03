@@ -1,3 +1,4 @@
+@import "~sassVariables";
 .mainContainer {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
@@ -6,4 +7,7 @@
 html * {
     font-family: "Roboto";
     font-weight: 400;
+}
+body {
+    background-color: $accent;
 }
