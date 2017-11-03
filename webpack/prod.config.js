@@ -22,7 +22,16 @@ module.exports = merge.smart(base, {
         new HappyPack ({
             id: 'style',
             loaders: [
-              'style-loader',            
+              'style-loader',
+              {
+                loader: 'css-loader',
+                query: {
+                  modules: true,
+                  localIdentName: '[name]__[local]___[hash:base64:5]',
+                  importLoaders: 1,
+                  sourceMap: true,
+                },
+              },          
               {
                 loader: 'postcss-loader',
                 options: {
@@ -32,9 +41,9 @@ module.exports = merge.smart(base, {
                 }
             },
               'resolve-url-loader',
-              'sass-loader'
+              'sass-loader?sourceMap'
             ]
         }),
-        new OfflinePlugin(),
+        // new OfflinePlugin(),
     ]
 })
