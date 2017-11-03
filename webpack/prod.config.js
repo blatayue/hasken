@@ -23,14 +23,7 @@ module.exports = merge.smart(base, {
             {
             id: 'style',
             loaders: [
-              {
-                loader: 'style-loader',
-                options: {
-                  sourceMap: true,
-                  hmr: false
-                }
-              },
-        
+                'style-loader',
               {
                 loader: 'css-loader',
                 query: {
@@ -48,9 +41,8 @@ module.exports = merge.smart(base, {
                   }
                 }
               },
-              {
-                loader: 'resolve-url-loader',
-              },
+              
+              'resolve-url-loader',
               {
                 loader: 'sass-loader',
                 options: { 

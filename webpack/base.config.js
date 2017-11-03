@@ -33,7 +33,7 @@ module.exports = {
   resolve: {
     extensions: ['.js', '.jsx'],
     alias: {
-      materialize_sass: 'materialize-css/sass'
+      images: path.resolve(__dirname, '../src/images/')
     },
     modules: [
       path.resolve('./'),
