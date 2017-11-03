@@ -21,7 +21,6 @@ module.exports = merge.smart(base, {
   module : {
     rules: [{
       test: /\.scss$/,
-      exclude: path.resolve(__dirname, '../src/materialize'),
       loader: 'happypack/loader?id=style'
     }]
   },
