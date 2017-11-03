@@ -34,8 +34,11 @@ module.exports = merge.smart(base, {
               {
                 loader: 'css-loader',
                 query: {
-                importLoaders: 1,
-                }
+                    modules: true,
+                    localIdentName: '[name]__[local]___[hash:base64:5]',
+                    importLoaders: 1,
+                    sourceMap: true,
+                  }
               },
               {
                 loader: 'postcss-loader',
