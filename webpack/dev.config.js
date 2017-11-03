@@ -18,12 +18,7 @@ module.exports = merge.smart(base, {
       contentBase: OUT_DIR,
     },
   devtool: 'eval',
-  module : {
-    rules: [{
-      test: /\.scss$/,
-      loader: 'happypack/loader?id=style'
-    }]
-  },
+
   plugins: [
       new webpack.NamedModulesPlugin(),
       new webpack.optimize.ModuleConcatenationPlugin(),

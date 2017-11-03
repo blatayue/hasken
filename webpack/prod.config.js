@@ -12,14 +12,6 @@ module.exports = merge.smart(base, {
         publicPath: '/hasken/',
         filename: '[name].js',
     },
-    module: {
-        rules: [
-            {
-            test: /\.scss$/,
-            loader: 'happypack/loader?id=style'
-        }
-    ]
-    },
     plugins: [
         new webpack.optimize.UglifyJsPlugin(),
         new HappyPack({
