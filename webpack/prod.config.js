@@ -19,10 +19,18 @@ module.exports = merge.smart(base, {
             loaders: ['babel-loader']
         }),
         // scss
-        new HappyPack ({
+        new HappyPack (
+            {
             id: 'style',
             loaders: [
-              'style-loader',
+              {
+                loader: 'style-loader',
+                options: {
+                  sourceMap: true,
+                  hmr: false
+                }
+              },
+        
               {
                 loader: 'css-loader',
                 query: {
@@ -30,19 +38,29 @@ module.exports = merge.smart(base, {
                   localIdentName: '[name]__[local]___[hash:base64:5]',
                   importLoaders: 1,
                   sourceMap: true,
-                },
-              },          
+                }
+              },
               {
                 loader: 'postcss-loader',
                 options: {
-                  sourceMap: true,  
+                  sourceMap: true,
                   config: {
                     path: path.resolve(__dirname, './postcss.config.js')
                   }
                 }
-            },
-              'resolve-url-loader?sourceMap',
-              'sass-loader?sourceMap'
+              },
+              {
+                loader: 'resolve-url-loader',
+                options: {
+                  sourceMap: true
+                }
+              },
+              {
+                loader: 'sass-loader',
+                options: { 
+                  sourceMap: true 
+                }
+              }
             ]
         }),
         // new OfflinePlugin(),
