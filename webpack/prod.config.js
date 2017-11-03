@@ -29,6 +29,7 @@ module.exports = merge.smart(base, {
                   hmr: false
                 }
               },
+
               {
                 loader: 'css-loader',
                 query: {
