@@ -23,7 +23,13 @@ module.exports = merge.smart(base, {
             {
             id: 'style',
             loaders: [
-                'style-loader',
+              {
+                loader: 'style-loader',
+                options: {
+                  sourceMap: true
+                }
+              },
+        
               {
                 loader: 'css-loader',
                 query: {
