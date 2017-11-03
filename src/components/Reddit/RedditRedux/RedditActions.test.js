@@ -11,7 +11,7 @@ const expect = chai.expect
 const should = chai.should()
 const middlewares = [ thunk ]
 const mockStore = configureMockStore(middlewares)
-const redditUri = 'https://www.reddit.com/r/webdev/hot.json?limit=10'
+const redditUri = 'https://www.reddit.com/r/webdev/hot.json?limit=9'
 describe('async fetches', () => {
     afterEach(() => {
         fetchMock.reset()
