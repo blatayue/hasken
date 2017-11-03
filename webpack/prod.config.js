@@ -2,7 +2,7 @@ const merge = require('webpack-merge')
 const base = require('./base.config.js')
 const path = require('path')
 const OUT_DIR = path.resolve(__dirname, '../dist')
-const OfflinePlugin = require('offline-plugin')
+// const OfflinePlugin = require('offline-plugin')
 const webpack = require('webpack')
 const HappyPack = require('happypack')
 
