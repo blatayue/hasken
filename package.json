@@ -7,7 +7,7 @@
     "start": "webpack-dev-server --hot --history-api-fallback --inline --open --config webpack/dev.config.js",
     "test": "cross-env NODE_ENV=test mocha --require babel-register --require babel-polyfill --require ./src/conf src/**/*test.js",
     "lint": "eslint src/",
-    "build": "cross-env NODE_ENV=production webpack -p --config webpack/prod.config.js"
+    "build": "webpack -p --config webpack/prod.config.js"
   },
   "author": "Blatayue",
   "license": "ISC",
