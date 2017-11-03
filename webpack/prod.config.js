@@ -43,10 +43,6 @@ module.exports = merge.smart(base, {
               'sass-loader'
             ]
         }),
-        new OfflinePlugin({
-            ServiceWorker: { 
-                entry: path.resolve(OUT_DIR, './sw.js') 
-            },
-        }),
+        new OfflinePlugin(),
     ]
 })
