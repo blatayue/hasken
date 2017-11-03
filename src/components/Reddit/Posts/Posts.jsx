@@ -18,9 +18,13 @@ const Posts = props => (
                 <LazyLoad height='4rem'>
                     <img href={post.url} className={style.post__thumbnail} 
                         height='4rem' 
-                        src={post.thumbnail !== 'self' ? 
-                        post.thumbnail : 
-                        require('../../../images/self.png')} 
+                        src={
+                        post.thumbnail === 'self' ? 
+                        require('images/self.png') :
+                        post.thumbnail === 'default' ?
+                        require('images/globe.png') :
+                        post.thumbnail
+                    } 
                     />
                 </ LazyLoad>
             </a>
