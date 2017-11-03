@@ -30,16 +30,7 @@ module.exports = merge.smart(base, {
         new HappyPack ({
             id: 'style',
             loaders: [
-              'style-loader',
-              {
-                loader: 'css-loader',
-                query: {
-                    modules: true,
-                    localIdentName: '[name]__[local]___[hash:base64:5]',
-                    importLoaders: 1,
-                    sourceMap: true,
-                  }
-              },
+              'style-loader',            
               {
                 loader: 'postcss-loader',
                 options: {
@@ -47,14 +38,9 @@ module.exports = merge.smart(base, {
                     path: path.resolve(__dirname, './postcss.config.js')
                   }
                 }
-              },
-                'resolve-url-loader',
-              {
-                loader: 'sass-loader',
-                options: { 
-                  sourceMap: true 
-                }
-              }
+            },
+              'resolve-url-loader',
+              'sass-loader'
             ]
         }),
         new OfflinePlugin({
