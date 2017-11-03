@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import * as actions from './RedditActions'
+import * as actions from './RedditRedux/RedditActions'
 import style from './Reddit.scss'
 import Posts from './Posts/Posts'
 import PropTypes from 'prop-types'

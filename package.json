@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server --hot --history-api-fallback --inline --open --config webpack/dev.config.js",
-    "test": "cross-env NODE_ENV=test mocha --require babel-register --require babel-polyfill --require ./src/conf src/**/*test.js",
+    "test": "cross-env NODE_ENV=test mocha --require babel-register --require babel-polyfill --require ./src/conf src/**/**/*test.js",
     "lint": "eslint src/",
     "build": "webpack -p --config webpack/prod.config.js"
   },

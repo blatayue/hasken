@@ -2,7 +2,7 @@ import React from 'react'
 import style from './Weather.scss'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
-import * as WeatherActions from './WeatherActions'
+import * as WeatherActions from './WeatherRedux/WeatherActions'
 
 
 class WeatherContainer extends React.Component {
