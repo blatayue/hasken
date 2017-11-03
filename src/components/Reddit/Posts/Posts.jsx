@@ -5,6 +5,7 @@ const Posts = props => (
     props.posts.map(post =>
         <div className={style.post} key={post.title}>
 
+            <i class="material-icons md-dark">keyboard_arrow_up</i>
             <p className={style.post__score}>{post.score}</p>
             
             <a href={post.url} 

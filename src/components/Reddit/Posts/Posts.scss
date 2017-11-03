@@ -1,11 +1,12 @@
 .post {
     display: grid;
     grid-template-rows: 1fr 1fr;
-    grid-template-columns: 1fr 1fr 6fr;
+    grid-template-columns: 1fr 2fr 12fr;
     grid-template-areas: 
-    "postScore thumbnail title"
+    "postArrow thumbnail title"
     "postScore thumbnail authorAndComments";
     margin-bottom: 1rem;
+    margin-left: 1rem;
     height: 5rem;
     a {
         color: #039be5;
@@ -14,9 +15,14 @@
       // Gets rid of tap active state
       -webkit-tap-highlight-color: transparent;
     }
+    i {
+        margin: auto auto 0 auto;
+        grid-area: postArrow;
+    }
     .post__score {
         grid-area: postScore;
-        margin: 2.5rem auto 0 auto;
+        margin: 0 auto auto auto;
+        font-weight: 600;
     
     }
     .post__title {
@@ -37,7 +43,7 @@
     }
     .post__thumbLink {
         grid-area: thumbnail;
-        margin-top: auto;
+        margin: auto 1rem auto;
         height: 4rem;
         width: 4rem;
     }
