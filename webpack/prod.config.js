@@ -31,7 +31,12 @@ module.exports = merge.smart(base, {
             id: 'style',
             loaders: [
               'style-loader',
-              'css-loader',
+              {
+                loader: 'css-loader',
+                query: {
+                importLoaders: 1,
+                }
+              },
               {
                 loader: 'postcss-loader',
                 options: {
@@ -40,12 +45,7 @@ module.exports = merge.smart(base, {
                   }
                 }
               },
-              {
-                loader: 'resolve-url-loader',
-                options: {
-                  sourceMap: true
-                }
-              },
+                'resolve-url-loader',
               {
                 loader: 'sass-loader',
                 options: { 
