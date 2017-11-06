@@ -1,18 +1,21 @@
 @import "~sassVariables";
-.navWrap {
-    display: flex;
+nav {
+    display: grid;
     height: 4rem;
     background-color: $primary-dark;
+    padding-left: 2rem;
+    grid-template-columns: 1fr auto 2fr;
+    grid-template-areas: "brand . weather";
+    margin-bottom: 1rem;
     a {
         font-size: 1.25em;
         margin-right: .75em;
         margin-left: .75em;
     }
-}
-nav {
-    grid-column: 1 / 13;
-    grid-row: 1 / span 1;
-    margin-bottom: 1rem;
+    .brand {
+        grid-area: brand;
+        margin: auto;
+    }
 }
 a {
 	color: white;
@@ -22,6 +25,3 @@ a {
   -webkit-tap-highlight-color: transparent;
 }
 
-.brand {
-    margin: auto auto auto 4rem;
-}

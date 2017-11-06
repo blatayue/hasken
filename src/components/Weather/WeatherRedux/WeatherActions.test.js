@@ -12,13 +12,12 @@ const should = chai.should()
 const middlewares = [ thunk ]
 const mockStore = configureMockStore(middlewares)
 const weatherApiUri = 'https://api.wunderground.com/api/1152f09242a61822/forecast/conditions/q/AZ/Glendale.json'
-describe('async fetches', () => {
+
+describe('Weather API thunk', () => {
     afterEach(() => {
         fetchMock.reset()
         fetchMock.restore()
     })
-})
-describe('Weather API thunk', () => {
     it('Should dispatch WEATHER_SUCCESS on fetch success with right weather keys', 
     (done) => {
         fetchMock.getOnce(weatherApiUri,
@@ -33,13 +32,14 @@ describe('Weather API thunk', () => {
                 'current'
             ]
         ]
-        store.dispatch(actions.fetchWeather()).then(() => {
+        store.dispatch(actions.fetchWeather())
+        .then(() => {
             const storeActions = store.getActions()
             storeActions.forEach((action, i) => {
                 action.should.have.keys(expectedActionsKeys[i])
             })
-            done()
         })
+        .then(done)
         
     })
 })

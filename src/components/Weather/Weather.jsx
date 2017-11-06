@@ -61,17 +61,17 @@ WeatherContainer.propTypes = {
     threeDay: PropTypes.array
 }
 const mapStateToProps = state => {
-    if (!state.weatherReducer.isDoneLoading) return {isDoneLoading: false}
+    if (!state.weather.isDoneLoading) return {isDoneLoading: false}
     return {
-        isDoneLoading: state.weatherReducer.isDoneLoading,
-        full: state.weatherReducer.current.display_location.full,
-        lowF: `Low: ${state.weatherReducer.today.low.fahrenheit}F`,
-        currentF: `${state.weatherReducer.current.temp_f}F`,
-        highF: `High: ${state.weatherReducer.today.high.fahrenheit}F`,
-        humidity: `Humidity: ${state.weatherReducer.current.relative_humidity}`,
-        condition: state.weatherReducer.current.weather,
-        uv: `UV Index: ${state.weatherReducer.current.UV}`,
-        threeDay: state.weatherReducer.threeDay
+        isDoneLoading: state.weather.isDoneLoading,
+        full: state.weather.current.display_location.full,
+        lowF: `Low: ${state.weather.today.low.fahrenheit}F`,
+        currentF: `${state.weather.current.temp_f}F`,
+        highF: `High: ${state.weather.today.high.fahrenheit}F`,
+        humidity: `Humidity: ${state.weather.current.relative_humidity}`,
+        condition: state.weather.current.weather,
+        uv: `UV Index: ${state.weather.current.UV}`,
+        threeDay: state.weather.threeDay
     }
 }
  

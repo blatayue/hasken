@@ -7,12 +7,12 @@ import  {createStore, applyMiddleware, combineReducers } from 'redux'
 import { Provider } from 'react-redux'
 import thunk from 'redux-thunk'
 import App from './components/App/App'
-import { weatherReducer } from './components/Weather/WeatherRedux/WeatherReducer'
-import { redditReducer } from './components/Reddit/RedditRedux/RedditReducers'
+import { weather } from './components/Weather/WeatherRedux/WeatherReducer'
+import { reddit } from './components/Reddit/RedditRedux/RedditReducers'
 import { composeWithDevTools } from 'redux-devtools-extension'
 const reducers = combineReducers({
-  weatherReducer,
-  redditReducer
+  weather,
+  reddit,
 })
 const store = createStore(reducers, composeWithDevTools(applyMiddleware(thunk)))
 

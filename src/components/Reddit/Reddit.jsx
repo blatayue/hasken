@@ -22,9 +22,9 @@ class Reddit extends React.Component {
 }
 
 const mapStateToProps = state => {
-    if(!state.redditReducer.isDoneLoading) return {isDoneLoading: false}
+    if(!state.reddit.isDoneLoading) return {isDoneLoading: false}
     return {
-        posts: state.redditReducer.redditPosts,
+        posts: state.reddit.redditPosts,
         isDoneLoading: true
     }
 }

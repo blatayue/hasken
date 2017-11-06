@@ -12,13 +12,13 @@ const should = chai.should()
 const middlewares = [ thunk ]
 const mockStore = configureMockStore(middlewares)
 const redditUri = 'https://www.reddit.com/r/webdev/hot.json?limit=9'
-describe('async fetches', () => {
+
+describe('Reddit thunk', () => {
     afterEach(() => {
         fetchMock.reset()
         fetchMock.restore()
     })
-})
-describe('Reddit thunk', () => {
+    
     it('Should dispatch REDDIT_SUCCESS on fetch reddit success with the right keys', 
     (done) => {
         fetchMock.getOnce(redditUri, {body: testData})
@@ -29,12 +29,13 @@ describe('Reddit thunk', () => {
                 'data'
             ],
         ]
-        store.dispatch(actions.getWebDevPosts()).then(() => {
+        store.dispatch(actions.getWebDevPosts())
+        .then(() => {
             const storeActions = store.getActions()
             storeActions.forEach((action, i) => {
                 action.should.have.keys(expectedActionsKeys[i])
-            })
-            done()
+            })            
         })
+        .then(done)
     })
 })
