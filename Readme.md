@@ -3,7 +3,8 @@
 ## Tasks
 ### Todo:  
 - [ ] Add tests for components  
-- [ ] Add tests for react-redux mapStateToProps  
+- [ ] Add tests for react-redux mapStateToProps
+- [ ] Unfuck the commit messages after squash  
 
 ### Doing:
 - [ ] Add works section
