@@ -1,9 +1,8 @@
 import React from 'react'
-import style from './Navbar.scss'
 import Weather from '../Weather/Weather'
 export default () => (
-            <nav className={style.navWrap}>
-                <a href="#" className={style.brand}>Homepage</a>
+            <nav>
+                <a href="#">Homepage</a>
                 <Weather />
             </nav>
     )

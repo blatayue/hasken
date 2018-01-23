@@ -1,7 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import * as actions from './RedditRedux/RedditActions'
-import style from './Reddit.scss'
 import Posts from './Posts/Posts'
 import PropTypes from 'prop-types'
 class Reddit extends React.Component {
@@ -14,7 +13,7 @@ class Reddit extends React.Component {
     render() {
         return (
             this.props.isDoneLoading ?             
-            <div className={style.posts}>
+            <div /* where to style props*/>
                 <Posts posts={this.props.posts} />
             </div> : null
         )

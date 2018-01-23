@@ -1,23 +1,18 @@
 import React from 'react'
-import style from './Posts.scss'
 import LazyLoad from 'react-lazyload'
 const Posts = props => (
     props.posts.map(post =>
-        <div className={style.post} key={post.title}>
+        <div key={post.title}>
 
             <i className="material-icons md-dark">keyboard_arrow_up</i>
-            <p className={style.post__score}>{post.score}</p>
+            <p>{post.score}</p>
             
-            <a href={post.url} 
-                className={post.stickied ? 
-                style['post__title--stickied'] : 
-                style.post__title}
-            >
+            <a href={post.url}s>
                 <h2>{post.title}</h2>
             </a>
-            <a href={post.url} className={style.post__thumbLink}>
+            <a href={post.url}>
                 <LazyLoad height='4rem'>
-                    <img href={post.url} className={style.post__thumbnail} 
+                    <img href={post.url} 
                         height='4rem' 
                         src={
                         post.thumbnail === 'self' ? 
@@ -29,10 +24,10 @@ const Posts = props => (
                     />
                 </ LazyLoad>
             </a>
-            <div className={style.post__flex}>
-                <p className={style.post__author}>{post.author}</p>
+            <div>
+                <p>{post.author}</p>
                       
-                <p className={style.post__commentsLink}>
+                <p>
                     <a href={post.permalink}>{`${post.num_comments} Comments`}</a>
                 </p>
             </div>

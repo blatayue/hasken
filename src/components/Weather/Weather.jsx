@@ -15,34 +15,34 @@ class WeatherContainer extends React.Component {
     render () {
         return (
             
-            <div className={style.weather}>
+            <div >
                 {
                 this.props.isDoneLoading ? 
-                <div className={style.weatherNow}> 
-                    <div className={style.weatherNow__city}>{this.props.full}</div>
-                    <div className={style.weatherNow__low}>{this.props.lowF}</div>
-                    <div className={style.weatherNow__tempNow}>{this.props.currentF}</div>
-                    <div className={style.weatherNow__high}>{this.props.highF}</div>
-                    <div className={style.weatherNow__humidity}>{this.props.humidity}</div>
-                    <div className={style.weatherNow__condition}>{this.props.condition}</div>
-                    <div className={style.weatherNow__uvIndex}>{this.props.uv}</div>
+                <div > 
+                    <div>{this.props.full}</div>
+                    <div>{this.props.lowF}</div>
+                    <div>{this.props.currentF}</div>
+                    <div>{this.props.highF}</div>
+                    <div>{this.props.humidity}</div>
+                    <div>{this.props.condition}</div>
+                    <div>{this.props.uv}</div>
                 </div> : 
-                <div className={style.weatherNow}>
-                    <div className={style.weatherNow__city}>Loading...</div>
+                <div >
+                    <div>Loading...</div>
                 </div> 
                 }
                 
                 {
                 this.props.isDoneLoading ? 
                 this.props.threeDay.map(day => 
-                    <div className={style.forecast} key={day.weekday}>
-                        <div className={style.forecast__day}>{day.weekday}</div>
-                        <div className={style.forecast__condition}>{day.conditions}</div>
-                        <div className={style.forecast__windSpeed}>{day.windSpeed}</div>
-                        <div className={style.forecast__low}>{day.lowF}</div>
-                        <div className={style.forecast__windDirection}>{day.windDirection}</div>
-                        <div className={style.forecast__high}>{day.highF}</div>
-                        <div className={style.forecast__humidity}>{day.humidity}</div>
+                    <div key={day.weekday}>
+                        <div>{day.weekday}</div>
+                        <div>{day.conditions}</div>
+                        <div>{day.windSpeed}</div>
+                        <div>{day.lowF}</div>
+                        <div>{day.windDirection}</div>
+                        <div>{day.highF}</div>
+                        <div>{day.humidity}</div>
                     </div>
                 ) : null}
             </div>
